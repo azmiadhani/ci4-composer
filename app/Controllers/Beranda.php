@@ -9,6 +9,11 @@ class Beranda extends BaseController
 {
 	protected $controller = "beranda";
 
+	public function index()
+	{
+		$this->news();
+	}
+
 	public function news($slug = false)
 	{
 		$model = new Beranda_m();
