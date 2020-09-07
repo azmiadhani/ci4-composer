@@ -36,7 +36,7 @@ class Beranda extends BaseController
 		$data['method'] = $this->controller . "/news";
 		$data['slug'] = $slug;
 
-		$this->layout->frender('pages/beranda_v', $data);
+		$this->layout->frender('beranda/beranda_v', $data);
 	}
 
 	public function request_news($slug = false)
