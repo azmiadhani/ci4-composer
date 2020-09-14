@@ -46,6 +46,11 @@ class Beranda extends BaseController
 		// echo json_encode($model->getNews($slug));
 	}
 
+	public function frest()
+	{
+		echo view('templates/frest/example');
+	}
+
 	//--------------------------------------------------------------------
 
 }
