@@ -16,7 +16,28 @@ class Beranda extends BaseController
 
 	public function index()
 	{
-		$this->news();
+		$this->news_new();
+	}
+
+	/**
+	 * Undocumented function
+	 *
+	 * @param boolean $slug
+	 * @return void
+	 */
+	public function news_new($slug = false)
+	{
+		$model = new Beranda_m();
+
+		$data['news'] = $model->getNews($slug);
+		if (empty($data['news'])) {
+			throw new \CodeIgniter\Exceptions\PageNotFoundException('Cannot find the news item: ' . $slug);
+		}
+		$data['title'] = "Berita";
+		$data['method'] = $this->controller . "/news";
+		$data['slug'] = $slug;
+
+		echo view('beranda/beranda_new_v', $data);
 	}
 	/**
 	 * Undocumented function
